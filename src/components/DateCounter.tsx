@@ -14,7 +14,7 @@ type Action =
   | { type: "setStep"; payload: number }
   | { type: "reset" };
 
-function reducer(currentState: ReducerState, action: Action) {
+const reducer = function (currentState: ReducerState, action: Action) {
   switch (action.type) {
     case "dec":
       return { ...currentState, count: currentState.count - currentState.step };
@@ -29,7 +29,7 @@ function reducer(currentState: ReducerState, action: Action) {
     default:
       throw new Error("Unknown Error!");
   }
-}
+};
 
 function DateCounter() {
   const [state, dispatch] = useReducer(reducer, initialState);
